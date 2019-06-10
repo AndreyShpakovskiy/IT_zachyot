@@ -1,0 +1,25 @@
+{
+	"Users":
+	[
+		{
+			"id": "228",
+			"name": "Андрей Замай Андреевич",
+			"email": "han@zamay.by",
+			"password": "qwerty123",
+			"photo": "vk.by/img1",	
+			"place": "Minsk",
+			"rate":	"79",
+			
+		},
+
+		{
+			"id": "328",
+			"name": "Бутерброд Бутербродский",
+			"email": "buter@buter.ua",
+			"password": "asdfghjkl",
+			"photo": "vk.by/img2",	
+			"place": "Brest",
+			"rate":	"99",
+		}
+	],
+}

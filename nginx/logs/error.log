@@ -1,0 +1,2 @@
+2019/06/10 13:24:06 [error] 5076#13928: *1 CreateFile() "D:\GitHub\web\IT_zachyot\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2019/06/10 13:25:16 [notice] 3504#15136: signal process started
