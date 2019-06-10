@@ -1,0 +1,124 @@
+swagger: "2.0"
+info:
+  description: "Сервис для поиска гидов"
+  version: "1.0.0"
+  title: "Guide"
+host: "guide.by"
+basePath: "/api"
+schemes:
+- "https"
+- "http"
+paths:
+  /auth/signup:
+    post:
+      summary: "Регистрация нового пользователя"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "SignUp"
+        required: true
+        schema:
+          $ref: "#/definitions/SignUpForm"
+      responses:
+        200:
+          description: "Пользователь успешно зарегестрирован"
+        422:
+          description: "Отправлены некорректные данные"
+  /auth/signin:
+    post:
+      summary: "Авторизация пользователя"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "SignIn"
+        required: true
+        schema:
+          $ref: "#/definitions/SignInForm"
+      responses:
+        200:
+          description: "Пользователь успешно авторизирован"
+        422:
+          description: "Отправлены некорректные данные"
+  /users/{idUser}:
+    get:
+      description: "Возвращает пользователя"
+      produces:
+      - "application/json"
+      parameters: 
+        - in: "path"
+          name: "idUser"
+          required: true
+          type: "integer"
+      responses:
+        200:
+          description: "Пользователь успешно авторизирован"
+          schema:
+            $ref: "#/definitions/User"
+        422:
+          description: "Отправлены некорректные данные"
+  /list:
+    get:
+      description: "Возвращает список пользователей"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Пользователи успешно возвращены"
+          schema:
+            $ref: "#/definitions/AllUsers"
+definitions:
+  SignUpForm:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        example: "test@test.com"
+      password:
+        type: "string"
+        example: "qwerty123"
+      password_confirmation:
+        type: "string"
+        example: "qwerty123"
+  SignInForm:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        example: "test@test.com"
+      password:
+        type: "string"
+        example: "qwerty123"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        example: "228"
+      name:
+        type: "string"
+        example: "Андрей Замай Андреевич"
+      email:
+        type: "string"
+        example: "han@zamay.by"
+      password:
+        type: "integer"
+        example: "qwerty123"
+      photo:
+        type: "string"
+        example: "vk.com/img1.png"
+      place:
+        type: "string"
+        example: "Minsk"
+      rate:
+        type: "integer"
+        example: "100"
+  AllUsers:
+    type: "array"
+    items:
+      $ref: "#/definitions/User"
